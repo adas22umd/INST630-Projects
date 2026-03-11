@@ -4,16 +4,53 @@
 
 }
 
+:root{
+    --font-family-Sofia: "Sofia Sans Semi Condensed", sans-serif;
+    --font-family-Signika: "Signika", sans-serif;
+    --font-italics: italic;
+    --Signika-weight: 600;
+    --header-font-size: 20px;
+    --desc-font-size: 24px;
+    --header-font-weight: bold;
+    --recipe-line-height: 2rem; 
+    
+    --background-white:#fffff4;
+    --recipe-meta-bg-color:#99edcc;
+    --recipe-desc-bg-color:#cb958e;
+    --recipe-ingredients-bg-color:#e36689;
+    --recipe-instructions-bg-color:#9a275a;
+    --recipe-footer-bg-color:#9ac4f8;
+    --recipe-meta-color: #1d5e44;
+    --recipe-desc-color: #531d16;
+    --recipe-ingredients-color:#741f39;
+    --recipe-instructions-color:#ffffff;
+    --recipe-footer-color:#265083;
+    
+    --recipe-header-padding: 0 0 0 0;
+    --heading-padding: 1rem;
+    --body-padding: 2rem;
+    --background-size: 240px;
+    --bento-radius: 8px;
+    --bento-padding: 0 24px 0 24px;
+    --bento-gap: 8px;
+    --grid-layout-desktop: 160px 320px 320px 80px;
+    --grid-layout-other: 240px 240px 240px 480px 480px 180px;
+    --recipe-image-desktop: 100%;
+    --recipe-image-other: 80%;
+    
+
+}
+
 body{
-    padding: 2rem;
+    padding: var(--body-padding);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "Sofia Sans Semi Condensed", sans-serif;
+    font-family: var(--font-family-Sofia);
     background-image: url(EndlessDots.png);
     background-repeat: repeat;
-    background-color: #fffff4;
-    background-size: 240px;
+    background-color: var(--background-white);
+    background-size: var(--background-size);
 }
 
 ul, ol{
@@ -21,8 +58,8 @@ ul, ol{
 }
 
 .bento{
-    padding: 0 24px 0 24px;
-    border-radius: 8px;
+    padding: var(--bento-padding);
+    border-radius: var(--bento-radius);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,9 +69,9 @@ ul, ol{
 
 .recipe-container{
     display: grid;
-    gap: 8px;
+    gap: var(--bento-gap);
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 160px 320px 320px 80px;
+    grid-template-rows: var(--grid-layout-desktop);
     grid-template-areas: 
     "a a a a"
     "b c c c"
@@ -43,9 +80,9 @@ ul, ol{
 }
 
 h1, h2{
-    font-family: "Signika", sans-serif;
-    font-weight: 600;
-    padding-bottom: 1rem;
+    font-family: var(--font-family-Signika);
+    font-weight: var(--Signika-weight);
+    padding-bottom: var(--heading-padding);
 }
 
 .recipe-header{
@@ -53,58 +90,57 @@ h1, h2{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: var(--header-font-size);
+    font-weight: var(--header-font-weight);
     grid-area: a;
-    padding: 0 0 0 0;
-    line-height: 2rem;
+    padding: var(--recipe-header-padding);
+    line-height: var(--recipe-line-height);
 }
 
 .recipe-image{
-    height: 100%;
+    height: var(--recipe-image-desktop);
     /*border: solid 1px #be6405;
     border-radius: 8px;*/
 }
 
 .recipe-meta{
     grid-area: b;
-    background-color: #99edcc;
-    color: #1d5e44;
-
+    background-color: var(--recipe-meta-bg-color);
+    color: var(--recipe-meta-color);
 }
 
 .recipe-description{
-    font-size: 24px;
+    font-size: var(--desc-font-size);
     grid-area: c;
-    background-color: #cb958e ;
-    color: #531d16 ;
+    background-color: var(--recipe-desc-bg-color);
+    color: var(--recipe-desc-color);
 }
 
 .ingredients-section{
     grid-area: d;
-    background-color: #e36689;
-    color: #741f39 ;
+    background-color: var(--recipe-ingredients-bg-color);
+    color: var(--recipe-ingredients-color);
 
 }
 
 .instructions-section{
     grid-area: e;
-    background-color: #9a275a;
-    color: #ffffff;
+    background-color: var(--recipe-instructions-bg-color);
+    color: var(--recipe-instructions-color);
 }
 
 .recipe-footer{
     grid-area: f;
-    background-color: #9AC4F8;
-    color: #265083;
-    font-style: italic;
+    background-color: var(--recipe-footer-bg-color);
+    color: var(--recipe-footer-color);
+    font-style: var(--font-italics);
 
 }
 
 @media (max-width: 1280px) {
     .recipe-container{
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 240px 240px 240px 480px 480px 180px;
+    grid-template-rows: var(--grid-layout-other);
     grid-template-areas: 
     "a a"
     "b b"
@@ -119,7 +155,7 @@ h1, h2{
     }
 
     .recipe-image{
-        height: 80%;
+        height: var(--recipe-image-other);
     }
 
     .bento{
